@@ -22,8 +22,7 @@ class ButtonWidget extends StatelessWidget {
     return ElevatedButton(
       onPressed: btnOnPress,
       style: ElevatedButton.styleFrom(
-          primary: btnBackgroundColor,
-          onPrimary: btnTextColor,
+          foregroundColor: btnTextColor, backgroundColor: btnBackgroundColor,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
       ),
       child: Text(btnText,

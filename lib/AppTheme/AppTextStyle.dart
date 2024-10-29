@@ -17,8 +17,12 @@ class AppTextStyle{
   );
 
   static const TextStyle nameOfTextStyle = TextStyle(
-    fontSize: 24,
+    fontSize: 15,
     color: Colors.green,
     fontWeight: FontWeight.bold,
+  );
+
+  static const TextStyle robotoMediumTextStyleColorGrey=TextStyle(
+      color: AppColor.blackWhite,fontSize: 16,fontFamily: 'roboto', fontWeight: FontWeight.w500
   );
 }

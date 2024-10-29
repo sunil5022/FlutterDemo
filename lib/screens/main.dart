@@ -4,6 +4,7 @@ import 'package:flutter_ui/widgets/CustomAppBar.dart';
 import 'package:flutter_ui/widgets/EditTextWidget.dart';
 import 'package:get/get.dart';
 
+import 'ColoumnRow.dart';
 import 'home.dart';
 
 void main() {
@@ -49,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar.toolBar("Mian", context),
+      appBar: CustomAppBar.toolBar("Main", context),
       body: Container(
         // Center is a layout widget. It takes-const  a single child and positions it
         // in the middle of the parent.
@@ -86,8 +87,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
                       ElevatedButton(onPressed: () {
-                        Get.to(LoginScreen());
-                        // Get.to(Home());
+                        // Get.to(ColoumnRow());
+                        Get.to(Home());
                       }, child: const Text("Button")),
                       InkWell(
                         child: Text(

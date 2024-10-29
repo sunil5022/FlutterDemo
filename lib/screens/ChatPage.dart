@@ -173,7 +173,7 @@ Widget searchView() {
         color: Colors.grey.shade100),
     child: Row(
       children: [
-        Icon(Icons.search, color: Colors.grey.shade600, size: 20),
+        Icon(Icons.search, color: Colors.grey, size: 20),
         SizedBox(width: 5),
         Text("Search..",
             style: TextStyle(

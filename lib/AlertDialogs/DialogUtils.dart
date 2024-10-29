@@ -29,6 +29,4 @@ class DialogUtils {
        return alert;
      },
    );
- }
-
-}
+ }}

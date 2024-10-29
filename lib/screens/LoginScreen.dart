@@ -8,6 +8,7 @@ import '../AppTheme/AppTextStyle.dart';
 import '../notification/LocalNotificationService.dart';
 import '../widgets/EditTextWidget.dart';
 import 'ChatScreen.dart';
+import 'OrderListScreen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -206,9 +207,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       btnTextColor: AppColor.textWhite,
                       textStyle: AppTextStyle.robotoMediumTextStyle,
                       btnOnPress: () async {
-                       // print("Cancel");
-                         await LocalNotificationService().init();
-                         LocalNotificationService().showNotificationAndroid("Sunil ", " Notification..");
+                        // print("Cancel");
+                        Get.to(OrderListScreen());
                       })
                 ],
               ),

@@ -6,7 +6,11 @@ class EditTextWidget extends StatelessWidget {
   final String validationText;
   final TextEditingController textFieldController;
   bool obscureText=false;
-  EditTextWidget({super.key, required this.hintText,required this.obscureText,required this.validationText,required this.textFieldController});
+  EditTextWidget({super.key,
+    required this.hintText,
+    required this.obscureText,
+    required this.validationText,
+    required this.textFieldController});
 
   @override
   Widget build(BuildContext context) {
