@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/AppHelper/AppHelper.dart';
 import 'package:flutter_ui/AppTheme/AppTextStyle.dart';
+import 'package:flutter_ui/screens/OrderListScreen.dart';
 import 'package:flutter_ui/screens/controller/ControllerHomeScreen.dart';
 import 'package:flutter_ui/widgets/CustomAppBar.dart';
 import 'package:get/get.dart';
@@ -13,180 +13,178 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  RxString mm="".obs;
+  RxString mm = "".obs;
+
   @override
   Widget build(BuildContext context) {
-    return GetX<ControllerHomeScreen>(
+    return GetBuilder<ControllerHomeScreen>(
       init: ControllerHomeScreen(),
-      builder: (controller)=>
-       Scaffold(
+      builder: (controller) => Scaffold(
         appBar: CustomAppBar.toolBar("Home", context),
-        body: Container(
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: SafeArea(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          _showModalBottomSheet(context);
-                        },
-                        child: const Row(
-                          children: [
-                            Row(
-                              children: [
-                                Icon(Icons.lock_outline),
-                                SizedBox(width: 10),
-                                Text("sunil_kk"),
-                                Icon(Icons.keyboard_arrow_down)
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Row(
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        _showModalBottomSheet(context);
+                      },
+                      child: const Row(
                         children: [
                           Row(
                             children: [
-                              InkWell(
-                                  onTap: () {
-                                    controller.updateFollowers("100088");
-                                  },
-                                  child: const Icon(Icons.attach_file_rounded)),
-                              const SizedBox(width: 10),
-                              InkWell(
-                                  onTap: () {},
-                                  child: const Icon(Icons.add_box_outlined)),
-                              const SizedBox(width: 10),
-                              InkWell(onTap: () {}, child: Icon(Icons.menu))
+                              Icon(Icons.lock_outline),
+                              SizedBox(width: 10),
+                              Text("sunil_kk"),
+                              Icon(Icons.keyboard_arrow_down)
                             ],
                           )
                         ],
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-      
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Icon(Icons.add_reaction_rounded,color:Colors.green,size: 80),
-                      Expanded(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
+                    ),
+                    Row(
+                      children: [
+                        Row(
                           children: [
-                            Column(
-                              children: [Text(controller.followers.value),const Text("posts")],
-                            ),
-                            const SizedBox(width: 30),
-                            const Column(
-                              children: [Text("107"),Text("followers")],
-                            ),
-                            const SizedBox(width: 30),
-                            const Column(
-                              children: [Text("200"),Text("following")],
-                            )
+                            InkWell(
+                                onTap: () {
+                                  controller.updateFollowers("100088");
+                                },
+                                child: const Icon(Icons.attach_file_rounded)),
+                            const SizedBox(width: 10),
+                            InkWell(
+                                onTap: () {},
+                                child: const Icon(Icons.add_box_outlined)),
+                            const SizedBox(width: 10),
+                            InkWell(onTap: () {}, child: Icon(Icons.menu))
                           ],
-                        ),
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-      
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Expanded(
-                          child: InkWell(
-                        onTap: () {},
-                        child: Container(
-                          padding: const EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                              border: Border.all(width: 2, color: Colors.black12),
-                              color: Colors.black12,
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(8))),
-                          child: const Text(
-                            "Edit profile",
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      )),
-                      const SizedBox(width: 10),
-      
-                      Expanded(
-                          child: InkWell(
-                        onTap: () {},
-                        child: Container(
-                          padding: const EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                              border: Border.all(width: 2, color: Colors.black12),
-                              color: Colors.black12,
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(8))),
-                          child: const Text(
-                            "Share profile",
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      )),
-      
-                      //MyRow(),
-                      const SizedBox(width: 10),
-      
-                      InkWell(
-                          onTap: () {},
-                          child: Container(
-                            padding: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                              color: Colors.black12,
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(8)),
-                              border: Border.all(width: 1, color: Colors.black12),
-                            ),
-                            child: const Icon(Icons.hail),
-                          ))
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  Container(
-                    height: 60,
-                    child: ListView(
-                      // This next line does the trick.
-                      scrollDirection: Axis.horizontal,
-                      children: <Widget>[
-                        Container(
-                          width: 160,
-                          color: Colors.red,
-                        ),
-                        Container(
-                          width: 160,
-                          color: Colors.blue,
-                        ),
-                        Container(
-                          width: 160,
-                          color: Colors.green,
-                        ),
-                        Container(
-                          width: 160,
-                          color: Colors.yellow,
-                        ),
-                        Container(
-                          width: 160,
-                          color: Colors.orange,
-                        ),
+                        )
                       ],
                     ),
-      
-                    ),
-                ],
-              ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Icon(Icons.add_reaction_rounded,
+                        color: Colors.green, size: 80),
+                    Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Column(
+                            children: [
+                              Text(controller.followers.value),
+                              const Text("posts")
+                            ],
+                          ),
+                          const SizedBox(width: 30),
+                          const Column(
+                            children: [Text("107"), Text("followers")],
+                          ),
+                          const SizedBox(width: 30),
+                          const Column(
+                            children: [Text("200"), Text("following")],
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                        child: InkWell(
+                      onTap: () {},
+                      child: Container(
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            border:
+                                Border.all(width: 2, color: Colors.black12),
+                            color: Colors.black12,
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(8))),
+                        child: const Text(
+                          "Edit profile",
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    )),
+                    const SizedBox(width: 10),
+
+                    Expanded(
+                        child: InkWell(
+                      onTap: () {},
+                      child: Container(
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            border:
+                                Border.all(width: 2, color: Colors.black12),
+                            color: Colors.black12,
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(8))),
+                        child: const Text(
+                          "Share profile",
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    )),
+
+                    //MyRow(),
+                    const SizedBox(width: 10),
+
+                    InkWell(
+                        onTap: () {},
+                        child: Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: Colors.black12,
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(8)),
+                            border:
+                                Border.all(width: 1, color: Colors.black12),
+                          ),
+                          child: const Icon(Icons.hail),
+                        ))
+                  ],
+                ),
+                const SizedBox(height: 10),
+                shortVideo(context),
+                tabLayout(controller),
+                tabBarView(controller),
+              ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+
+  Expanded tabBarView(ControllerHomeScreen controller) {
+    return  Expanded(
+      child: Container(
+        alignment: Alignment.center,
+
+        child: TabBarView(
+          controller: controller.tab1Controller,
+          children: [
+            for (int i = 0; i <3;i++)
+              Center(
+                child: Column(
+                  children: [
+                    Text("Screen number dd : $i")
+                  ],
+                ),
+              )
+          ],
         ),
       ),
     );
@@ -214,66 +212,69 @@ class MyRow extends StatelessWidget {
   }
 }
 
-void _showModalBottomSheet(BuildContext context){
-   showModalBottomSheet(
-     elevation: 10.0,
-     backgroundColor: Colors.white60,
-     context: context,
-  builder: (BuildContext bc){
-  return  Column(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      const Icon(Icons.linear_scale),
-      Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Column(
-
+void _showModalBottomSheet(BuildContext context) {
+  showModalBottomSheet(
+      elevation: 10.0,
+      backgroundColor: Colors.white60,
+      context: context,
+      builder: (BuildContext bc) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-              children: [
-                Text("Account center",textAlign: TextAlign.start,),
-                Icon(Icons.line_weight_outlined)
-              ],
-            ),
-            SizedBox(height: 10),
-            Container(
-
-              padding: const EdgeInsets.all(1.0),
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                color: Colors.white54
-
+            const Icon(Icons.linear_scale),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                children: [
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Account center",
+                        textAlign: TextAlign.start,
+                      ),
+                      Icon(Icons.line_weight_outlined)
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Container(
+                      padding: const EdgeInsets.all(1.0),
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          color: Colors.white54),
+                      child: bottomSheetContent(context))
+                ],
               ),
-              child:bottomSheetContent(context)
-            )
+            ),
           ],
-        ),
-      ),
-    ],
-  );
-  }
-  );
+        );
+      });
 }
 
-Column bottomSheetContent(context){
+Column bottomSheetContent(context) {
   return Column(
     children: [
       new ListTile(
-          leading: new Icon(Icons.add_reaction_rounded,color:Colors.green,size: 30),
-          trailing: new Icon(Icons.check_circle,color: Colors.blue,size: 30,),
+          leading: new Icon(Icons.add_reaction_rounded,
+              color: Colors.green, size: 30),
+          trailing: new Icon(
+            Icons.check_circle,
+            color: Colors.blue,
+            size: 30,
+          ),
           title: new Text('sunil_kk'),
-          onTap: () => {}
-      ),
+          onTap: () => {}),
       new ListTile(
-        leading: new Icon(Icons.add_reaction_rounded,color:Colors.redAccent,size: 30),
-        trailing: new Icon(Icons.info_outline_rounded,color: Colors.blue,size: 30),
+        leading: new Icon(Icons.add_reaction_rounded,
+            color: Colors.redAccent, size: 30),
+        trailing:
+            new Icon(Icons.info_outline_rounded, color: Colors.blue, size: 30),
         title: new Text('Sunil kumar'),
         onTap: () => {},
       ),
       new ListTile(
-        leading: new Icon(Icons.add_circle_outline_sharp,color:Colors.green,size: 30),
+        leading: new Icon(Icons.add_circle_outline_sharp,
+            color: Colors.green, size: 30),
         title: new Text('Add instragram account'),
         onTap: () => {},
       )
@@ -281,26 +282,43 @@ Column bottomSheetContent(context){
   );
 }
 
-ListView shortVideo(context){
-  return ListView(
+Column shortVideo(context) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    mainAxisAlignment: MainAxisAlignment.start,
     children: [
-      new ListTile(
-          leading: new Icon(Icons.add_reaction_rounded,color:Colors.green,size: 30),
-          trailing: new Icon(Icons.check_circle,color: Colors.blue,size: 30,),
-          title: new Text('sunil_kk'),
-          onTap: () => {}
-      ),
-      new ListTile(
-        leading: new Icon(Icons.add_reaction_rounded,color:Colors.redAccent,size: 30),
-        trailing: new Icon(Icons.info_outline_rounded,color: Colors.blue,size: 30),
-        title: new Text('Sunil kumar'),
-        onTap: () => {},
-      ),
-      new ListTile(
-        leading: new Icon(Icons.add_circle_outline_sharp,color:Colors.green,size: 30),
-        title: new Text('Add instragram account'),
-        onTap: () => {},
+      Container(
+        height:100,
+        child: ListView(
+          // This next line does the trick.
+          scrollDirection: Axis.horizontal,
+          children: const <Widget>[
+            Column(children: <Widget>[
+              Icon(Icons.add_reaction_rounded,
+                  color: Colors.green, size: 80),
+              Text("Name")
+            ]),
+            SizedBox(width:20),
+            Column(children: <Widget>[
+              Icon(Icons.add_reaction_rounded,
+                  color: Colors.green, size: 80),
+              Text("Name")
+            ])
+          ],
+        ),
       )
     ],
   );
+}
+
+Container tabLayout(ControllerHomeScreen controller) {
+  return  Container(
+      child: TabBar(
+        controller: controller.tab1Controller,
+        tabs: const [
+          Tab(icon: Icon(Icons.directions_car)),
+          Tab(icon: Icon(Icons.directions_transit)),
+          Tab(icon: Icon(Icons.directions_bike)),
+        ],
+      ));
 }
